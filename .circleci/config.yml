@@ -8,7 +8,6 @@ jobs:
     executor: ci-executor
     steps:
       - checkout
-
       - run:
           name: build dependencies
           command: bundle install
@@ -16,6 +15,8 @@ jobs:
       - run:
           name: build the jekyll site
           command: bundle exec jekyll build
+
+
 
       - run:
           name: notify build is finished
@@ -55,3 +56,4 @@ workflows:
       - testlinks:
           requires:
             - build
+
